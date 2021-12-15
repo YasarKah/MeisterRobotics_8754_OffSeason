@@ -6,10 +6,11 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.MotorConstants;
 
 public class Conveyor_Subsystem extends SubsystemBase {
-  private final WPI_VictorSPX ConveyorMotor = new WPI_VictorSPX(MotorConstants.Conveyor_Motor_Port);
+  public final WPI_VictorSPX ConveyorMotor = new WPI_VictorSPX(MotorConstants.Conveyor_Motor_Port);
 
   public Conveyor_Subsystem() {
-    ConveyorMotor.setInverted(true);
+      ConveyorMotor.setInverted(true);
+    
   }
 
   @Override

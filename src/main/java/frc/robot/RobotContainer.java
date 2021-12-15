@@ -22,7 +22,6 @@ public class RobotContainer {
   public final Shooter_Subsystem m_shooter = new Shooter_Subsystem();
   public final Intake_Subsystem m_intake = new Intake_Subsystem();
   public final Conveyor_Subsystem m_conveyor = new Conveyor_Subsystem();
-  
   Joystick driver_Controller = new Joystick(0);
 
   public RobotContainer() {
