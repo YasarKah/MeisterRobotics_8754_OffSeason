@@ -5,30 +5,28 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Conveyor_Subsystem;
+import frc.robot.subsystems.Reverse_Subsystem;
 
-public class ConveyorCommand extends CommandBase {
+public class ReverseCommand extends CommandBase {
 
-  private final Conveyor_Subsystem Conveyor_Subsystem;
-  
-  public ConveyorCommand(Conveyor_Subsystem conveyor_Subsystem) {
-    this.Conveyor_Subsystem = conveyor_Subsystem;
-    addRequirements(conveyor_Subsystem);
+  private final Reverse_Subsystem Reverse_Subsystem;
+
+  public ReverseCommand(Reverse_Subsystem reverse_Subsystem) {
+    this.Reverse_Subsystem = reverse_Subsystem;
+    addRequirements(reverse_Subsystem);
   }
 
   @Override
-  public void initialize() {
-    
-  }
+  public void initialize() {}
 
   @Override
   public void execute() {
-    Conveyor_Subsystem.Conveyor_In();
+    Reverse_Subsystem.ReverseTrue();
   }
 
   @Override
   public void end(boolean interrupted) {
-    Conveyor_Subsystem.Conveyor_Stop();
+    Reverse_Subsystem.ReverseFalse();
   }
 
   @Override
