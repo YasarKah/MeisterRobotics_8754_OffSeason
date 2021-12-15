@@ -7,14 +7,14 @@ package frc.robot;
 public final class Constants {
     public static final class MotorConstants {
 
-        public static final int kLeft_Master_Port = 2;
-        public static final int kLeft_Slave_Port = 7;
-        public static final int kRight_Master_Port = 1;
-        public static final int kRight_Slave_Port = 5;
+        public static final int kLeft_Master_Port = 1;
+        public static final int kLeft_Slave_Port = 99;
+        public static final int kRight_Master_Port = 2;
+        public static final int kRight_Slave_Port = 98;
 
-        public static final int Intake_Motor_Port = 9;
+        public static final int Intake_Motor_Port = 3;
         public static final int Conveyor_Motor_Port = 4;
-        public static final int Shooter_Motor_Port = 8;
+        public static final int Shooter_Motor_Port = 5;
     }
 
     public static final class JoystickConstants {
@@ -22,6 +22,7 @@ public final class Constants {
         public static final int Hand = 2;
         public static final int Three = 3;
         public static final int Four = 4;
+        public static final int Ten = 10;
 
         public static final int L1 = 5;
         public static final int R1 = 6;

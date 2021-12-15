@@ -14,6 +14,11 @@ public class TeleDriveCommand extends CommandBase {
   private final Joystick driver_Controller;
   private final Drive_Subsystem drive_Subsystem;
 
+  public double in_min = 1;
+  public double in_max = -1;
+  public double out_max = 1;
+  public double out_min = 0;
+
   public TeleDriveCommand(Joystick driver_Controller, Drive_Subsystem drive_Subsystem) {
     this.driver_Controller = driver_Controller;
     this.drive_Subsystem = drive_Subsystem;
@@ -31,16 +36,18 @@ public class TeleDriveCommand extends CommandBase {
   }
   private double getSpeed() {
     double speed =-driver_Controller.getRawAxis(JoystickConstants.StickAxisY);
-    double paddle = driver_Controller.getRawAxis(JoystickConstants.Slider);
-    System.out.println("Speed: "+ speed);
-    /*System.out.println("Paddle: "+ paddle);
-    System.out.println("Speed*Paddle: "+ speed*paddle);*/
-    double test = 0;
-    return test;
+    double lastSpeed = map()*speed;
+    return lastSpeed;
   }
   private double getRotation() {
-    double rotation = -driver_Controller.getRawAxis(JoystickConstants.StickRotate);
-    return rotation;
+    double rotation = driver_Controller.getRawAxis(JoystickConstants.StickRotate);
+    double lastRotation = map()*rotation;
+    return lastRotation;
+  }
+  private double map(){
+    double paddle = driver_Controller.getRawAxis(JoystickConstants.Slider);
+    double finalResult = ((paddle - in_min) * (out_max - out_min) / (in_max - in_min) + out_min);
+    return finalResult;
   }
   @Override
   public void end(boolean interrupted) {}
